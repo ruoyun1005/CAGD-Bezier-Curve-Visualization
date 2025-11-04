@@ -13,9 +13,7 @@ find_package(glm REQUIRED)
 
 # 你自己的程式碼
 set(SRCS
-#     main.cpp
-    circle.cpp
-#     csg.cpp
+    parabola.cpp
 )
 
 # 建 executable
