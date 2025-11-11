@@ -11,3 +11,6 @@ vector<vec3> generateparabola(
     const vec3 & b2,
     int n
 );
+
+void drawParabola();
+

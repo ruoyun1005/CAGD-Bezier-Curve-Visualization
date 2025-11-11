@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/main.dir/grid.cpp.o"
+  "CMakeFiles/main.dir/grid.cpp.o.d"
   "CMakeFiles/main.dir/parabola.cpp.o"
   "CMakeFiles/main.dir/parabola.cpp.o.d"
   "main"

@@ -1,0 +1,118 @@
+html,body{ 
+    height:100%;
+    width:100%; 
+    margin:0; 
+    overflow: hidden;       
+    background:#0b1020; 
+    color:#e3e7ff; 
+    font-family:ui-sans-serif,system-ui; 
+}
+.page {
+    width:100vw;
+    height:100dvh;
+    display:flex;
+    flex-direction:column;
+    box-sizing:border-box;
+    padding:12px;
+    gap:12px;
+    min-height:0;          
+}
+.site-header{
+    text-align:center;
+    padding:8px 0;
+    background:#111731;
+    border:1px solid #20284c;
+    border-radius:12px;
+    flex:0 0 auto;/* 不要被壓縮 */
+}
+.site-title {
+    font-size: 24px;
+    margin: 0;
+    letter-spacing:.3px;
+}
+.layout{
+    gap:12px;
+    min-height:0; 
+    flex-direction:column;      
+}
+.sidebar {
+    flex: 0 0 auto;
+    background:#111731; 
+    border:1px solid #20284c; 
+    border-radius:14px; padding:12px; 
+    display:flex; 
+    flex-direction:column; 
+    gap:8px;
+}
+.stage {
+    flex: 1 1 auto;
+    background: #111731;
+    border: 1px solid #20284c;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 0; 
+}
+canvas {  
+    height:100%;
+    width:100%;
+    margin:12px;
+    background:#0b1020; 
+    border:3px solid #363d61; 
+    border-radius:16px;
+}
+/* button { 
+    background:#151d3d; 
+    color:#e3e7ff; 
+    border:1px solid #2a3567; 
+    padding:8px 10px; 
+    border-radius:10px; 
+    cursor:pointer; 
+} */
+/* 讓五顆按鈕橫向排列 */
+.btn-row {
+    display:flex;
+    gap:8px;
+    justify-content:space-between;
+    flex-wrap:nowrap; 
+}
+.btn-row button {
+    flex: 1 1 45%;
+    padding: 8px 0;
+    border-radius: 8px;
+    border: 1px solid #2a3567;
+    background: #151d3d;
+    color: #e3e7ff;
+    box-shadow: 0 0 40px 40px #4c54c0 inset, 0 0 0 0 #4c54c0;
+    transition: all 150ms ease-in-out;
+}
+button:hover { 
+
+    color:#e3e7ff;
+    border-color:#383a4c; 
+    border:2px #26344c solid;
+    box-shadow: 0 0 10px 0 #4c54c0 inset, 0 0 10px 4px #477eff;
+}
+
+/* 手機版 自動改成上下排列 */
+@media (max-width:768px){
+  .layout{
+    grid-template-columns:1fr;
+    grid-template-rows:auto 1fr;
+    min-height:0;
+  }
+  .sidebar{
+    flex-direction:row;
+    flex-wrap:wrap;
+    justify-content:center;
+  }
+  .btn-row{ flex-wrap:wrap; }
+  .btn-row button{ flex:1 1 calc(50%-4px); }  /* 手機兩顆一行 */
+}
+
+@media (max-width: 420px){
+  .btn-row .btn{
+    flex: 1 1 100%;  /* 1 欄 */
+  }
+}

@@ -129,6 +129,30 @@ main/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/build
 .PHONY : main/fast
 
+grid.o: grid.cpp.o
+.PHONY : grid.o
+
+# target to build an object file
+grid.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/grid.cpp.o
+.PHONY : grid.cpp.o
+
+grid.i: grid.cpp.i
+.PHONY : grid.i
+
+# target to preprocess a source file
+grid.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/grid.cpp.i
+.PHONY : grid.cpp.i
+
+grid.s: grid.cpp.s
+.PHONY : grid.s
+
+# target to generate assembly for a file
+grid.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/grid.cpp.s
+.PHONY : grid.cpp.s
+
 parabola.o: parabola.cpp.o
 .PHONY : parabola.o
 
@@ -162,6 +186,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... main"
+	@echo "... grid.o"
+	@echo "... grid.i"
+	@echo "... grid.s"
 	@echo "... parabola.o"
 	@echo "... parabola.i"
 	@echo "... parabola.s"
