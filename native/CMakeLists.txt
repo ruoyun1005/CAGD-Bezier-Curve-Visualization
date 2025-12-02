@@ -15,10 +15,15 @@ find_package(glm REQUIRED)
 set(SRCS
     parabola.cpp
     grid.cpp
+    bezier.cpp
+    main.cpp
+    circle_complexity.cpp
 )
 
 # 建 executable
+add_executable(parabola ${SRCS})
 add_executable(main ${SRCS})
+add_executable(circle ${SRCS})
 
 # include 路徑
 target_include_directories(main PRIVATE
@@ -34,3 +39,4 @@ target_link_libraries(main PRIVATE
     glfw
     ${OPENGL_LIBRARIES}
 )
+target_link_libraries(parabola glfw)

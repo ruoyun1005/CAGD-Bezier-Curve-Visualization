@@ -100,21 +100,69 @@ CMakeFiles/main.dir/grid.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/main.dir/grid.cpp.s"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/yun/Desktop/CAGD_project/native/grid.cpp -o CMakeFiles/main.dir/grid.cpp.s
 
+CMakeFiles/main.dir/bezier.cpp.o: CMakeFiles/main.dir/flags.make
+CMakeFiles/main.dir/bezier.cpp.o: /Users/yun/Desktop/CAGD_project/native/bezier.cpp
+CMakeFiles/main.dir/bezier.cpp.o: CMakeFiles/main.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/yun/Desktop/CAGD_project/native/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/main.dir/bezier.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/main.dir/bezier.cpp.o -MF CMakeFiles/main.dir/bezier.cpp.o.d -o CMakeFiles/main.dir/bezier.cpp.o -c /Users/yun/Desktop/CAGD_project/native/bezier.cpp
+
+CMakeFiles/main.dir/bezier.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/main.dir/bezier.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/yun/Desktop/CAGD_project/native/bezier.cpp > CMakeFiles/main.dir/bezier.cpp.i
+
+CMakeFiles/main.dir/bezier.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/main.dir/bezier.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/yun/Desktop/CAGD_project/native/bezier.cpp -o CMakeFiles/main.dir/bezier.cpp.s
+
+CMakeFiles/main.dir/main.cpp.o: CMakeFiles/main.dir/flags.make
+CMakeFiles/main.dir/main.cpp.o: /Users/yun/Desktop/CAGD_project/native/main.cpp
+CMakeFiles/main.dir/main.cpp.o: CMakeFiles/main.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/yun/Desktop/CAGD_project/native/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/main.dir/main.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/main.dir/main.cpp.o -MF CMakeFiles/main.dir/main.cpp.o.d -o CMakeFiles/main.dir/main.cpp.o -c /Users/yun/Desktop/CAGD_project/native/main.cpp
+
+CMakeFiles/main.dir/main.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/main.dir/main.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/yun/Desktop/CAGD_project/native/main.cpp > CMakeFiles/main.dir/main.cpp.i
+
+CMakeFiles/main.dir/main.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/main.dir/main.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/yun/Desktop/CAGD_project/native/main.cpp -o CMakeFiles/main.dir/main.cpp.s
+
+CMakeFiles/main.dir/circle_complexity.cpp.o: CMakeFiles/main.dir/flags.make
+CMakeFiles/main.dir/circle_complexity.cpp.o: /Users/yun/Desktop/CAGD_project/native/circle_complexity.cpp
+CMakeFiles/main.dir/circle_complexity.cpp.o: CMakeFiles/main.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/yun/Desktop/CAGD_project/native/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/main.dir/circle_complexity.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/main.dir/circle_complexity.cpp.o -MF CMakeFiles/main.dir/circle_complexity.cpp.o.d -o CMakeFiles/main.dir/circle_complexity.cpp.o -c /Users/yun/Desktop/CAGD_project/native/circle_complexity.cpp
+
+CMakeFiles/main.dir/circle_complexity.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/main.dir/circle_complexity.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/yun/Desktop/CAGD_project/native/circle_complexity.cpp > CMakeFiles/main.dir/circle_complexity.cpp.i
+
+CMakeFiles/main.dir/circle_complexity.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/main.dir/circle_complexity.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/yun/Desktop/CAGD_project/native/circle_complexity.cpp -o CMakeFiles/main.dir/circle_complexity.cpp.s
+
 # Object files for target main
 main_OBJECTS = \
 "CMakeFiles/main.dir/parabola.cpp.o" \
-"CMakeFiles/main.dir/grid.cpp.o"
+"CMakeFiles/main.dir/grid.cpp.o" \
+"CMakeFiles/main.dir/bezier.cpp.o" \
+"CMakeFiles/main.dir/main.cpp.o" \
+"CMakeFiles/main.dir/circle_complexity.cpp.o"
 
 # External object files for target main
 main_EXTERNAL_OBJECTS =
 
 main: CMakeFiles/main.dir/parabola.cpp.o
 main: CMakeFiles/main.dir/grid.cpp.o
+main: CMakeFiles/main.dir/bezier.cpp.o
+main: CMakeFiles/main.dir/main.cpp.o
+main: CMakeFiles/main.dir/circle_complexity.cpp.o
 main: CMakeFiles/main.dir/build.make
 main: /opt/homebrew/lib/libGLEW.2.2.0.dylib
 main: /opt/homebrew/lib/libglfw.3.4.dylib
 main: CMakeFiles/main.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/yun/Desktop/CAGD_project/native/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable main"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/yun/Desktop/CAGD_project/native/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable main"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/main.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

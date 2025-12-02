@@ -3,8 +3,8 @@ html,body{
     width:100%; 
     margin:0; 
     overflow: hidden;       
-    background:#0b1020; 
-    color:#e3e7ff; 
+    background:#111731; 
+    color:#7882b9; 
     font-family:ui-sans-serif,system-ui; 
 }
 .page {
@@ -21,7 +21,7 @@ html,body{
     text-align:center;
     padding:8px 0;
     background:#111731;
-    border:1px solid #20284c;
+    border:1px solid #252d53;
     border-radius:12px;
     flex:0 0 auto;/* 不要被壓縮 */
 }
@@ -58,8 +58,8 @@ canvas {
     height:100%;
     width:100%;
     margin:12px;
-    background:#0b1020; 
-    border:3px solid #363d61; 
+    background:#0c1123; 
+    border:3px solid #3c4159; 
     border-radius:16px;
 }
 /* button { 

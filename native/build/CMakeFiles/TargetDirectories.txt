@@ -1,3 +1,5 @@
+/Users/yun/Desktop/CAGD_project/native/build/CMakeFiles/parabola.dir
 /Users/yun/Desktop/CAGD_project/native/build/CMakeFiles/main.dir
+/Users/yun/Desktop/CAGD_project/native/build/CMakeFiles/circle.dir
 /Users/yun/Desktop/CAGD_project/native/build/CMakeFiles/edit_cache.dir
 /Users/yun/Desktop/CAGD_project/native/build/CMakeFiles/rebuild_cache.dir

@@ -15,9 +15,15 @@ function updateCount(n: number) {
 document.getElementById('mode-add')!.addEventListener('click', ()=> pen.setMode('add'));
 document.getElementById('mode-edit')!.addEventListener('click',()=> pen.setMode('edit'));
 document.getElementById('undo')!.addEventListener('click',     ()=> pen.undo());
-document.getElementById('closed')!.addEventListener('click',    ()=> pen.toggleClosed());
 document.getElementById('clear')!.addEventListener('click',    ()=> pen.clear());
 
+const toggleBtn = document.getElementById('toggle-controls')!;
+toggleBtn.addEventListener('click', ()=> {
+  pen.toggleControls();
+  toggleBtn.textContent = (toggleBtn.textContent === 'HIDE HANDLES')
+    ? 'SHOW HANDLES' : 'HIDE HANDLES';
+}
+);
 function fitCanvasToCSS(canvas: HTMLCanvasElement, redraw: () => void) {
   const dpr = window.devicePixelRatio || 1;
   const rect = canvas.getBoundingClientRect();

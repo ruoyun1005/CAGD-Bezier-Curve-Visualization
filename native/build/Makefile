@@ -117,6 +117,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named parabola
+
+# Build rule for target.
+parabola: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 parabola
+.PHONY : parabola
+
+# fast build rule for target.
+parabola/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/parabola.dir/build.make CMakeFiles/parabola.dir/build
+.PHONY : parabola/fast
+
+#=============================================================================
 # Target rules for targets named main
 
 # Build rule for target.
@@ -129,12 +142,87 @@ main/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/build
 .PHONY : main/fast
 
+#=============================================================================
+# Target rules for targets named circle
+
+# Build rule for target.
+circle: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 circle
+.PHONY : circle
+
+# fast build rule for target.
+circle/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/circle.dir/build.make CMakeFiles/circle.dir/build
+.PHONY : circle/fast
+
+bezier.o: bezier.cpp.o
+.PHONY : bezier.o
+
+# target to build an object file
+bezier.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/parabola.dir/build.make CMakeFiles/parabola.dir/bezier.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/bezier.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/circle.dir/build.make CMakeFiles/circle.dir/bezier.cpp.o
+.PHONY : bezier.cpp.o
+
+bezier.i: bezier.cpp.i
+.PHONY : bezier.i
+
+# target to preprocess a source file
+bezier.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/parabola.dir/build.make CMakeFiles/parabola.dir/bezier.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/bezier.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/circle.dir/build.make CMakeFiles/circle.dir/bezier.cpp.i
+.PHONY : bezier.cpp.i
+
+bezier.s: bezier.cpp.s
+.PHONY : bezier.s
+
+# target to generate assembly for a file
+bezier.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/parabola.dir/build.make CMakeFiles/parabola.dir/bezier.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/bezier.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/circle.dir/build.make CMakeFiles/circle.dir/bezier.cpp.s
+.PHONY : bezier.cpp.s
+
+circle_complexity.o: circle_complexity.cpp.o
+.PHONY : circle_complexity.o
+
+# target to build an object file
+circle_complexity.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/parabola.dir/build.make CMakeFiles/parabola.dir/circle_complexity.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/circle_complexity.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/circle.dir/build.make CMakeFiles/circle.dir/circle_complexity.cpp.o
+.PHONY : circle_complexity.cpp.o
+
+circle_complexity.i: circle_complexity.cpp.i
+.PHONY : circle_complexity.i
+
+# target to preprocess a source file
+circle_complexity.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/parabola.dir/build.make CMakeFiles/parabola.dir/circle_complexity.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/circle_complexity.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/circle.dir/build.make CMakeFiles/circle.dir/circle_complexity.cpp.i
+.PHONY : circle_complexity.cpp.i
+
+circle_complexity.s: circle_complexity.cpp.s
+.PHONY : circle_complexity.s
+
+# target to generate assembly for a file
+circle_complexity.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/parabola.dir/build.make CMakeFiles/parabola.dir/circle_complexity.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/circle_complexity.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/circle.dir/build.make CMakeFiles/circle.dir/circle_complexity.cpp.s
+.PHONY : circle_complexity.cpp.s
+
 grid.o: grid.cpp.o
 .PHONY : grid.o
 
 # target to build an object file
 grid.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/parabola.dir/build.make CMakeFiles/parabola.dir/grid.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/grid.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/circle.dir/build.make CMakeFiles/circle.dir/grid.cpp.o
 .PHONY : grid.cpp.o
 
 grid.i: grid.cpp.i
@@ -142,7 +230,9 @@ grid.i: grid.cpp.i
 
 # target to preprocess a source file
 grid.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/parabola.dir/build.make CMakeFiles/parabola.dir/grid.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/grid.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/circle.dir/build.make CMakeFiles/circle.dir/grid.cpp.i
 .PHONY : grid.cpp.i
 
 grid.s: grid.cpp.s
@@ -150,15 +240,49 @@ grid.s: grid.cpp.s
 
 # target to generate assembly for a file
 grid.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/parabola.dir/build.make CMakeFiles/parabola.dir/grid.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/grid.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/circle.dir/build.make CMakeFiles/circle.dir/grid.cpp.s
 .PHONY : grid.cpp.s
+
+main.o: main.cpp.o
+.PHONY : main.o
+
+# target to build an object file
+main.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/parabola.dir/build.make CMakeFiles/parabola.dir/main.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/main.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/circle.dir/build.make CMakeFiles/circle.dir/main.cpp.o
+.PHONY : main.cpp.o
+
+main.i: main.cpp.i
+.PHONY : main.i
+
+# target to preprocess a source file
+main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/parabola.dir/build.make CMakeFiles/parabola.dir/main.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/main.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/circle.dir/build.make CMakeFiles/circle.dir/main.cpp.i
+.PHONY : main.cpp.i
+
+main.s: main.cpp.s
+.PHONY : main.s
+
+# target to generate assembly for a file
+main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/parabola.dir/build.make CMakeFiles/parabola.dir/main.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/main.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/circle.dir/build.make CMakeFiles/circle.dir/main.cpp.s
+.PHONY : main.cpp.s
 
 parabola.o: parabola.cpp.o
 .PHONY : parabola.o
 
 # target to build an object file
 parabola.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/parabola.dir/build.make CMakeFiles/parabola.dir/parabola.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/parabola.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/circle.dir/build.make CMakeFiles/circle.dir/parabola.cpp.o
 .PHONY : parabola.cpp.o
 
 parabola.i: parabola.cpp.i
@@ -166,7 +290,9 @@ parabola.i: parabola.cpp.i
 
 # target to preprocess a source file
 parabola.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/parabola.dir/build.make CMakeFiles/parabola.dir/parabola.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/parabola.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/circle.dir/build.make CMakeFiles/circle.dir/parabola.cpp.i
 .PHONY : parabola.cpp.i
 
 parabola.s: parabola.cpp.s
@@ -174,7 +300,9 @@ parabola.s: parabola.cpp.s
 
 # target to generate assembly for a file
 parabola.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/parabola.dir/build.make CMakeFiles/parabola.dir/parabola.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/parabola.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/circle.dir/build.make CMakeFiles/circle.dir/parabola.cpp.s
 .PHONY : parabola.cpp.s
 
 # Help Target
@@ -185,10 +313,21 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... circle"
 	@echo "... main"
+	@echo "... parabola"
+	@echo "... bezier.o"
+	@echo "... bezier.i"
+	@echo "... bezier.s"
+	@echo "... circle_complexity.o"
+	@echo "... circle_complexity.i"
+	@echo "... circle_complexity.s"
 	@echo "... grid.o"
 	@echo "... grid.i"
 	@echo "... grid.s"
+	@echo "... main.o"
+	@echo "... main.i"
+	@echo "... main.s"
 	@echo "... parabola.o"
 	@echo "... parabola.i"
 	@echo "... parabola.s"

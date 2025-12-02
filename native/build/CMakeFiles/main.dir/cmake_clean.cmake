@@ -1,6 +1,12 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/main.dir/bezier.cpp.o"
+  "CMakeFiles/main.dir/bezier.cpp.o.d"
+  "CMakeFiles/main.dir/circle_complexity.cpp.o"
+  "CMakeFiles/main.dir/circle_complexity.cpp.o.d"
   "CMakeFiles/main.dir/grid.cpp.o"
   "CMakeFiles/main.dir/grid.cpp.o.d"
+  "CMakeFiles/main.dir/main.cpp.o"
+  "CMakeFiles/main.dir/main.cpp.o.d"
   "CMakeFiles/main.dir/parabola.cpp.o"
   "CMakeFiles/main.dir/parabola.cpp.o.d"
   "main"

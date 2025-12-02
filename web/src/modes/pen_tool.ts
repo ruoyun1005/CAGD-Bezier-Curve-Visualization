@@ -22,11 +22,13 @@ type Hit =
 export class PenTool {
   private path: Anchor[] = [];
   private closed = false;
-  private mode: Mode = 'add';//預設新增模式
+  private mode: Mode = 'add'; // 預設新增模式
 
   private dragging: Hit = null;
   private last: Vec2 = {x:0,y:0};
   private shift = false;
+
+  private showControls = true; // 顯示控制線 
 
   constructor(private canvas: HTMLCanvasElement) {
     this.bindInput();
@@ -42,13 +44,23 @@ export class PenTool {
         this.draw();
         } 
     }
-  clear() { this.path = []; this.closed = false; this.draw(); }
+  clear() { 
+    console.log("CLEAR CALLED");
+    this.path = [ ]; 
+    this.closed = false; 
+    this.draw(); 
+  }
   undo() { 
+    console.log("UNDO");
     if (this.path.length > 0) {
         this.path.pop();
         if (this.path.length < 3) this.closed = false;
         this.draw();
     }
+  }
+  toggleControls(){
+    this.showControls = !this.showControls;
+    this.draw();
   }
 
   // 事件
@@ -179,20 +191,25 @@ export class PenTool {
     const g = makeCtx(this.canvas);
     const ctx = g.ctx;
 
-    g.clear(); g.grid();
+    // g.clear();
+    ctx.setTransform(1, 0, 0, 1, 0, 0);              // 避免有殘留 transform
+    ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    g.grid();
 
     //控制線
-    ctx.lineWidth = 1.5;
-    for (const a of this.path) {
-      const inAbs  = add(a.p, a.in);
-      const outAbs = add(a.p, a.out);
-      ctx.strokeStyle = '#fca5a5';
-      ctx.beginPath(); ctx.moveTo(a.p.x, a.p.y); ctx.lineTo(inAbs.x, inAbs.y); ctx.stroke();
-      ctx.beginPath(); ctx.moveTo(a.p.x, a.p.y); ctx.lineTo(outAbs.x,outAbs.y); ctx.stroke();
+    if(this.showControls){
+      ctx.lineWidth = 1.5;
+      for (const a of this.path) {
+        const inAbs  = add(a.p, a.in);
+        const outAbs = add(a.p, a.out);
+        ctx.strokeStyle = '#fca5a5';
+        ctx.beginPath(); ctx.moveTo(a.p.x, a.p.y); ctx.lineTo(inAbs.x, inAbs.y); ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(a.p.x, a.p.y); ctx.lineTo(outAbs.x,outAbs.y); ctx.stroke();
 
-      //控制的點點
-       g.circle(inAbs,  5, '#ffd6a5');
-       g.circle(outAbs, 5, '#ffd6a5');
+        //控制的點點
+        g.circle(inAbs,  3, '#ffd6a5');
+        g.circle(outAbs, 3, '#ffd6a5');
+      }
     }
 
     // path (cubic segments)
@@ -216,22 +233,24 @@ export class PenTool {
         ctx.bezierCurveTo(c1.x,c1.y, c2.x,c2.y, first.p.x, first.p.y);
       }
       ctx.stroke();
-      if (this.closed) {
+      if (this.closed&& this.showControls) {
         ctx.fillStyle = '#9aa3c7';
         ctx.font = '12px ui-sans-serif,system-ui';
-        ctx.fillText('（已封閉路徑）', 12, 32);
+        ctx.fillText('（已形成封閉路徑）', 12, 32);
         }
     }
       
 
     // anchors
-    for (const a of this.path) g.circle(a.p, 7, '#6ee7b7');
+    if(this.showControls){
+      for (const a of this.path) g.circle(a.p, 5, '#6ee7b7');
+    }
 
     // mode hint
     ctx.fillStyle = '#9aa3c7';
-    ctx.font = '12px ui-sans-serif,system-ui';
+    ctx.font = '18px ui-sans-serif,system-ui';
     ctx.fillText(`模式：${this.mode==='add'?'新增錨點':'編輯'}` , 12, 18);
-    if (this.closed) ctx.fillText('（已關閉路徑）', 100, 18);
+    if (this.closed) ctx.fillText('（已形成封閉路徑）', 100, 18);
   }
   public redraw(){
         this.draw();
