@@ -116,25 +116,25 @@ button:active {
 /* 平板版 (768px 以下) */
 @media (max-width: 768px){
     .page {
-        padding: 6px;
-        gap: 6px;
+        padding: 4px;
+        gap: 4px;
     }
     .site-header {
-        padding: 4px 0;
+        padding: 3px 0;
     }
     .site-header h2 {
         font-size: 20px;
-        padding: 4px 0;
+        padding: 3px 0;
     }
     .layout{
         flex-direction: column;
-        gap: 6px;
+        gap: 4px;
         flex: 1 1 auto;
     }
     .sidebar{
         flex-direction: column;
         flex-wrap: nowrap;
-        padding: 8px;
+        padding: 6px;
         min-width: unset;
         max-height: none;
         flex: 0 0 auto;
@@ -154,7 +154,7 @@ button:active {
         min-height: 0;
     }
     canvas {
-        margin: 4px;
+        margin: 2px;
         border-width: 2px;
     }
     .sidebar > div:last-child {
@@ -169,25 +169,25 @@ button:active {
 /* 手機版 (480px 以下) */
 @media (max-width: 480px){
     .page {
-        padding: 4px;
-        gap: 4px;
+        padding: 3px;
+        gap: 3px;
     }
     .site-header {
         border-radius: 8px;
-        padding: 3px 0;
+        padding: 2px 0;
     }
     .site-header h2 {
         font-size: 18px;
-        padding: 3px 0;
+        padding: 2px 0;
     }
     .layout{
-        gap: 4px;
+        gap: 3px;
         flex: 1 1 auto;
     }
     .sidebar{
-        padding: 6px;
+        padding: 5px;
         border-radius: 8px;
-        gap: 4px;
+        gap: 3px;
         flex: 0 0 auto;
     }
     .btn-row{ 
@@ -206,7 +206,7 @@ button:active {
         min-height: 0;
     }
     canvas {
-        margin: 3px;
+        margin: 2px;
         border-width: 2px;
         border-radius: 10px;
     }
@@ -235,7 +235,7 @@ button:active {
         gap: 3px;
     }
     .sidebar {
-        padding: 5px;
+        padding: 4px;
         gap: 3px;
     }
     .btn-row button{ 
@@ -244,7 +244,7 @@ button:active {
         min-height: 40px;
     }
     canvas {
-        margin: 2px;
+        margin: 1px;
     }
     .sidebar > div:last-child {
         font-size: 11px;

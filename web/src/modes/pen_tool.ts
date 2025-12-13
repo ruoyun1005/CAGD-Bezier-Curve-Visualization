@@ -71,6 +71,7 @@ export class PenTool {
     this.canvas.addEventListener('contextmenu', e=> e.preventDefault());
 
     this.canvas.addEventListener('pointerdown', (e)=>{
+      e.preventDefault(); // 防止觸控時的預設行為（如滾動）
       const p = this.pos(e);
       if (this.mode==='add') {
         // 新增模式：若點到既有點就當編輯；否則插入錨點
@@ -95,10 +96,11 @@ export class PenTool {
       this.last = p;
       this.canvas.setPointerCapture(e.pointerId);
       this.draw();
-    });
+    }, { passive: false });
 
     this.canvas.addEventListener('pointermove', (e)=>{
       if (!this.dragging) return;
+      e.preventDefault(); // 防止觸控時的預設行為
       const p = this.pos(e as PointerEvent);
       const dx = p.x - this.last.x, dy = p.y - this.last.y;
       this.last = p;
@@ -122,7 +124,7 @@ export class PenTool {
         }
       }
       this.draw();
-    });
+    }, { passive: false });
 
     this.canvas.addEventListener('pointerup', (e)=>{
       this.dragging = null;
@@ -173,8 +175,12 @@ export class PenTool {
 
   // ─ 命中測試
   private hitTest(p: Vec2): Hit {
-    const R2a = 9*9;   // 錨點半徑（像素^2）
-    const R2h = 7*7;   // 把手半徑
+    // 根據 devicePixelRatio 調整命中測試半徑，手機上更大
+    const dpr = window.devicePixelRatio || 1;
+    const isMobile = window.innerWidth <= 768;
+    const baseRadius = isMobile ? 20 : 12; // 手機版更大的觸控區域
+    const R2a = (baseRadius * baseRadius) * (dpr * dpr);   // 錨點半徑（像素^2）
+    const R2h = ((baseRadius * 0.7) * (baseRadius * 0.7)) * (dpr * dpr);   // 把手半徑
     for (let i=this.path.length-1; i>=0; i--) { // 後面的優先
       const a = this.path[i];
       if (dist2(p, a.p) <= R2a) return { kind:'anchor', index:i };
@@ -206,9 +212,12 @@ export class PenTool {
         ctx.beginPath(); ctx.moveTo(a.p.x, a.p.y); ctx.lineTo(inAbs.x, inAbs.y); ctx.stroke();
         ctx.beginPath(); ctx.moveTo(a.p.x, a.p.y); ctx.lineTo(outAbs.x,outAbs.y); ctx.stroke();
 
-        //控制的點點
-        g.circle(inAbs,  3, '#ffd6a5');
-        g.circle(outAbs, 3, '#ffd6a5');
+        //控制的點點 - 根據 devicePixelRatio 和螢幕大小調整
+        const dpr = window.devicePixelRatio || 1;
+        const isMobile = window.innerWidth <= 768;
+        const handleRadius = isMobile ? 5 : 4; // 手機版更大的控制點
+        g.circle(inAbs,  handleRadius, '#ffd6a5');
+        g.circle(outAbs, handleRadius, '#ffd6a5');
       }
     }
 
@@ -241,9 +250,12 @@ export class PenTool {
     }
       
 
-    // anchors
+    // anchors - 根據 devicePixelRatio 和螢幕大小調整點的大小
     if(this.showControls){
-      for (const a of this.path) g.circle(a.p, 5, '#6ee7b7');
+      const dpr = window.devicePixelRatio || 1;
+      const isMobile = window.innerWidth <= 768;
+      const anchorRadius = isMobile ? 8 : 6; // 手機版更大的點
+      for (const a of this.path) g.circle(a.p, anchorRadius, '#6ee7b7');
     }
 
     // mode hint
@@ -260,6 +272,8 @@ export class PenTool {
   // 工具：座標、向量
   private pos(e: PointerEvent): Vec2 {
     const r = this.canvas.getBoundingClientRect();
+    // 正確處理 devicePixelRatio：canvas 內部尺寸已經乘以 dpr
+    // 所以這裡直接使用 canvas.width/height 與顯示尺寸的比例
     return {
       x: (e.clientX - r.left) * (this.canvas.width  / r.width),
       y: (e.clientY - r.top)  * (this.canvas.height / r.height),
