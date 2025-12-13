@@ -102,6 +102,7 @@ canvas {
     transition: all 150ms ease-in-out;
     cursor: pointer;
     -webkit-tap-highlight-color: transparent;
+    outline: none;
 }
 button:hover { 
     color:#e3e7ff;
@@ -111,6 +112,23 @@ button:hover {
 }
 button:active {
     transform: scale(0.98);
+    color: #e3e7ff;
+    background: #151d3d;
+    border-color: #2a3567;
+    box-shadow: 0 0 40px 40px #4c54c0 inset, 0 0 0 0 #4c54c0;
+}
+button:focus {
+    color: #e3e7ff;
+    background: #151d3d;
+    border-color: #2a3567;
+    box-shadow: 0 0 40px 40px #4c54c0 inset, 0 0 0 0 #4c54c0;
+    outline: none;
+}
+button:focus:not(:active) {
+    color: #e3e7ff;
+    border-color: #383a4c;
+    border: 2px #26344c solid;
+    box-shadow: 0 0 10px 0 #4c54c0 inset, 0 0 10px 4px #477eff;
 }
 
 /* 平板版 (768px 以下) */
